@@ -19,20 +19,14 @@ export default function Contact() {
     message: "",
   });
 
-  // ENTER YOUR FORMSPREE ID HERE
-  const FORMSPREE_ID = "YOUR_ID_HERE"; 
+  const FORMBACKEND_URL = "https://www.formbackend.com/f/bfef5bb8bea5dab6";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (FORMSPREE_ID === "YOUR_ID_HERE") {
-        setStatus("loading");
-        setTimeout(() => setStatus("success"), 1500);
-        return;
-    }
 
     setStatus("loading");
     try {
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch(FORMBACKEND_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -58,7 +52,7 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 9911003057',
+      value: '+91 9911XXXXXX',
     },
     {
       icon: MapPin,

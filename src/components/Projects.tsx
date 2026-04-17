@@ -40,7 +40,7 @@ const projects = [
     description: "Engineered a real-time medical data vault using Next.js and Supabase. Implemented a custom Knuth-Morris-Pratt (KMP) algorithm for sub-millisecond keyword search across clinical logs.",
     tech: ["Next.js", "Supabase", "KMP Algorithm", "TypeScript"],
     link: "#",
-    image: "https://images.unsplash.com/photo-1576091160550-217359f4ecf8?w=800&q=80"
+    image: "/medivault.png"
   },
   {
     title: "AlgoPrep",
@@ -62,9 +62,25 @@ const projects = [
     title: "Mood Music",
     subtitle: "NLP-Driven Emotional Intelligence",
     description: "Engineered a high-performance MERN application utilizing Natural Language Processing (NLP) to map user-inputted sentiment to real-time music recommendations.",
-    tech: ["React", "NLP", "Express", "Sentiment Analysis"],
+    tech: ["Next.js", "MongoDB", "NLP"],
     link: "#",
     image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80"
+  },
+  {
+    title: "AI DebateArena",
+    subtitle: "Generative AI-Powered Discourse",
+    description: "A full-stack MERN platform where AI-powered debaters clash in real-time. Features dynamic argument generation, scoring logic, and an interactive spectator experience powered by Generative AI.",
+    tech: ["MongoDB", "Express", "React", "Node.js", "GenAI"],
+    link: "#",
+    image: "/debate-arena.png"
+  },
+  {
+    title: "Infinite Game Master",
+    subtitle: "AI-Generated Infinite Gameplay",
+    description: "An AI-driven game master that procedurally generates endless, adaptive game scenarios in real-time. Leverages Generative AI to craft unique narratives, challenges, and worlds on the fly.",
+    tech: ["GenAI", "React", "TypeScript"],
+    link: "#",
+    image: "/infinite-game.png"
   }
 ];
 
