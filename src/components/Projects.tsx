@@ -1,6 +1,7 @@
 "use client";
 import styles from "./Sections.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 // Agency Animation Variants
@@ -70,7 +71,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className={styles.section}>
-      <div className="container px-4">
+      <div className="container px-4 max-w-7xl mx-auto">
         <motion.div
            initial="hidden"
            whileInView="visible"
@@ -78,7 +79,7 @@ export default function Projects() {
            variants={fadeIn}
         >
           <h2 className={styles.sectionTitle}>
-            Featured <span>Projects</span>
+            Featured <span className="text-secondary-glow">Projects</span>
           </h2>
         </motion.div>
         <motion.div 
@@ -90,17 +91,38 @@ export default function Projects() {
         >
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemFadeIn} className="h-full">
-              <div className={`glass ${styles.projectCard} h-full group hover:border-primary-glow/30 transition-all duration-300`}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDesc}>{project.description}</p>
-                <div className={styles.projectTech}>
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className={styles.techTag}>{tech}</span>
-                  ))}
+              <div className={`glass ${styles.projectCard} h-full group hover:border-primary-glow/30 transition-all duration-300 overflow-hidden !p-0 flex flex-col`}>
+                <div className="relative h-56 w-full overflow-hidden">
+                   <Image 
+                     src={project.image} 
+                     alt={project.title} 
+                     fill 
+                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-60"></div>
                 </div>
-                <Link href={project.link} className="glow-btn-outline group-hover:bg-primary-glow group-hover:text-white transition-all" style={{ marginTop: 'auto', width: '100%' }}>
-                  View Project
-                </Link>
+                
+                <div className="p-8 flex flex-col flex-grow">
+                   <h3 className={styles.projectTitle} style={{ marginBottom: '0.25rem' }}>{project.title}</h3>
+                   <p className="text-secondary-glow text-[10px] font-mono uppercase tracking-[0.2em] mb-4 font-bold">{project.subtitle}</p>
+                   
+                   <p className={styles.projectDesc + " text-sm leading-relaxed text-slate-400 mb-6"}>
+                     {project.description}
+                   </p>
+                   
+                   <div className={styles.projectTech + " mt-auto"}>
+                     {project.tech.map((tech, i) => (
+                       <span key={i} className={styles.techTag}>{tech}</span>
+                     ))}
+                   </div>
+                   
+                   <Link 
+                     href={project.link} 
+                     className="glow-btn-outline group-hover:bg-primary-glow group-hover:text-white transition-all mt-8 no-underline text-center py-3 rounded-xl font-bold"
+                   >
+                     View Project
+                   </Link>
+                </div>
               </div>
             </motion.div>
           ))}

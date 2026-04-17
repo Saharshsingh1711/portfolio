@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 
+import { ButtonColorful } from "@/components/ui/button-colorful";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -26,8 +28,8 @@ export default function Navbar() {
           <li><Link href="#skills">Skills</Link></li>
           <li><Link href="#projects">Projects</Link></li>
           <li>
-            <Link href="#contact" className="glow-btn">
-              Let's Talk
+            <Link href="#contact">
+              <ButtonColorful label="Let's Talk" />
             </Link>
           </li>
         </ul>

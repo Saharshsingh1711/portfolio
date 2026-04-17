@@ -141,9 +141,9 @@ export default function About() {
 
           {/* Stats / Highlights - Minimalist Style */}
           <motion.div variants={itemFadeIn} className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
-            <div className="group relative p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-500 bg-gradient-to-br from-white/[0.02] to-transparent">
+            <div className="group relative p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all duration-500 bg-gradient-to-br from-white/[0.02] to-transparent">
               <div className="flex items-center space-x-6">
-                <div className="p-4 bg-blue-500/10 text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
+                <div className="p-4 bg-indigo-500/10 text-indigo-400 rounded-xl group-hover:scale-110 transition-transform">
                   <Globe size={32} strokeWidth={1.5} />
                 </div>
                 <div>

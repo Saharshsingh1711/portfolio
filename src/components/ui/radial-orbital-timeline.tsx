@@ -177,7 +177,7 @@ export default function RadialOrbitalTimeline({
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
-          <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-[pulse_2s_ease-in-out_infinite] flex items-center justify-center z-10">
+          <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 animate-[pulse_2s_ease-in-out_infinite] flex items-center justify-center z-10">
             <div className="absolute w-32 h-32 rounded-full border border-white/20 animate-[ping_1s_ease-in-out_infinite] opacity-70"></div>
             <div
               className="absolute w-40 h-40 rounded-full border border-white/10 animate-[ping_1s_ease-in-out_infinite] opacity-50"
@@ -298,7 +298,7 @@ export default function RadialOrbitalTimeline({
                         </div>
                         <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                            className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
                             style={{ width: `${item.energy}%` }}
                           ></div>
                         </div>

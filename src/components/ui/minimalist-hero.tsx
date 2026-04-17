@@ -14,8 +14,8 @@ interface MinimalistHeroProps {
   imageSrc: string;
   imageAlt: string;
   overlayText: {
-    part1: string;
-    part2: string;
+    part1: React.ReactNode;
+    part2: React.ReactNode;
   };
   socialLinks: { icon: LucideIcon; href: string }[];
   locationText: string;
