@@ -59,35 +59,6 @@ export const MinimalistHero = ({
         className
       )}
     >
-      {/* Header */}
-      <header className="z-30 flex w-full max-w-7xl items-center justify-between">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-xl font-bold tracking-wider"
-        >
-          {logoText}
-        </motion.div>
-        <div className="hidden items-center space-x-8 md:flex">
-          {navLinks.map((link) => (
-            <NavLink key={link.label} href={link.href}>
-              {link.label}
-            </NavLink>
-          ))}
-        </div>
-        <motion.button
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col space-y-1.5 md:hidden"
-          aria-label="Open menu"
-        >
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-5 bg-foreground"></span>
-        </motion.button>
-      </header>
 
       {/* Main Content Area */}
       <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
@@ -104,18 +75,12 @@ export const MinimalistHero = ({
           </a>
         </motion.div>
 
-        {/* Center Image with Circle */}
+        {/* Center Image */}
         <div className="relative z-30 order-1 md:order-2 flex justify-center items-center h-full">
-            <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-                className="absolute z-0 h-[300px] w-[300px] rounded-full bg-yellow-400/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
-            ></motion.div>
             <motion.img
                 src={imageSrc}
                 alt={imageAlt}
-                className="relative z-10 h-auto w-56 object-cover md:w-64 scale-150 lg:w-72 mix-blend-lighten"
+                className="relative z-10 h-auto w-56 object-cover md:w-64 scale-150 lg:w-72"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
