@@ -67,12 +67,20 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="z-20 order-2 md:order-1 text-center md:text-left"
+          className="z-20 order-2 md:order-1 text-center md:text-left flex flex-col justify-center"
         >
-          <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
-          <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font">
-            Read More
-          </a>
+          <h2 className="text-4xl font-extrabold text-foreground md:text-5xl lg:text-7xl leading-none tracking-tighter uppercase whitespace-pre-line">
+            Web{"\n"}Developer
+          </h2>
+          <motion.a 
+            href={readMoreLink} 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="mt-8 text-sm font-medium tracking-[0.2em] text-foreground/40 hover:text-foreground transition-colors uppercase"
+          >
+            Explore Projects
+          </motion.a>
         </motion.div>
 
         {/* Center Image */}

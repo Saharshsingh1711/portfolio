@@ -25,8 +25,8 @@ const MinimalistHeroDemo = () => {
     <MinimalistHero
       logoText="mnmlst."
       navLinks={navLinks}
-      mainText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, justo vel tempus."
-      readMoreLink="#"
+      mainText="Web developer"
+      readMoreLink="/#projects"
       imageSrc="/port-hero-image.jpeg"
       imageAlt="A portrait of a person in a black turtleneck, in profile."
       overlayText={{
