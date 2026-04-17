@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import { Heart, Linkedin } from "lucide-react";
+import { Heart } from "lucide-react";
 import { GithubIcon, Linkedin01Icon, File01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { NeonButton } from "@/components/ui/neon-button";
