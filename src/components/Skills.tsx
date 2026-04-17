@@ -1,33 +1,241 @@
-import styles from "./Sections.module.css";
+"use client";
 
-const skills = [
-  { name: "Next.js", icon: "🚀" },
-  { name: "React", icon: "⚛️" },
-  { name: "Node.js", icon: "🟢" },
-  { name: "Express", icon: "🚂" },
-  { name: "MongoDB", icon: "🍃" },
-  { name: "TypeScript", icon: "💙" },
-  { name: "JavaScript", icon: "💛" },
-  { name: "Tailwind CSS", icon: "🌊" }, // User may use it later
-  { name: "Git", icon: "📦" },
-  { name: "REST APIs", icon: "🔗" }
+import RadialOrbitalTimeline, { TimelineItem } from "@/components/ui/radial-orbital-timeline";
+import { 
+  FileCode, 
+  Paintbrush, 
+  FileCode2, 
+  Database, 
+  Server, 
+  Workflow, 
+  Coffee, 
+  Cpu, 
+  Terminal, 
+  AppWindow, 
+  Cloud, 
+  Sparkles, 
+  Atom, 
+  Wind, 
+  Box, 
+  BrainCircuit 
+} from "lucide-react";
+
+const timelineData: TimelineItem[] = [
+  {
+    id: 1,
+    title: "HTML",
+    date: "Core",
+    content: "Semantic structuring, accessibility, and modern HTML5 features.",
+    category: "Frontend",
+    icon: FileCode,
+    relatedIds: [2, 3],
+    status: "completed",
+    energy: 95,
+  },
+  {
+    id: 2,
+    title: "CSS",
+    date: "Core",
+    content: "Advanced styling, flexbox, grid, animations, and responsive design.",
+    category: "Frontend",
+    icon: Paintbrush,
+    relatedIds: [1, 16, 17],
+    status: "completed",
+    energy: 90,
+  },
+  {
+    id: 3,
+    title: "JavaScript",
+    date: "Core",
+    content: "ES6+, async programming, DOM manipulation, and core JS principles.",
+    category: "Frontend",
+    icon: FileCode2,
+    relatedIds: [6, 14, 15],
+    status: "completed",
+    energy: 95,
+  },
+  {
+    id: 4,
+    title: "MongoDB",
+    date: "MERN Stack",
+    content: "NoSQL DB design, Mongoose schemas, aggregations, and indexing.",
+    category: "Backend",
+    icon: Database,
+    relatedIds: [5, 6],
+    status: "in-progress",
+    energy: 85,
+  },
+  {
+    id: 5,
+    title: "Express.js",
+    date: "MERN Stack",
+    content: "RESTful API design, middleware creation, routing, and backend logic.",
+    category: "Backend",
+    icon: Server,
+    relatedIds: [4, 6],
+    status: "in-progress",
+    energy: 85,
+  },
+  {
+    id: 6,
+    title: "Node.js",
+    date: "MERN Stack",
+    content: "Server-side JavaScript runtime for building scalable network applications.",
+    category: "Backend",
+    icon: Workflow,
+    relatedIds: [4, 5, 3],
+    status: "in-progress",
+    energy: 85,
+  },
+  {
+    id: 7,
+    title: "Java",
+    date: "Core Language",
+    content: "Object-oriented programming, data structures, and core JVM architecture.",
+    category: "Languages",
+    icon: Coffee,
+    relatedIds: [8],
+    status: "completed",
+    energy: 85,
+  },
+  {
+    id: 8,
+    title: "C++",
+    date: "Core Language",
+    content: "Systems programming, memory management, and high-performance applications.",
+    category: "Languages",
+    icon: Cpu,
+    relatedIds: [7],
+    status: "completed",
+    energy: 80,
+  },
+  {
+    id: 9,
+    title: "Python",
+    date: "Core Language",
+    content: "Versatile programming for scripts, backend logic, data processing, and AI tools.",
+    category: "Languages",
+    icon: Terminal,
+    relatedIds: [13, 18],
+    status: "completed",
+    energy: 95,
+  },
+  {
+    id: 10,
+    title: "Next.js",
+    date: "Framework",
+    content: "Server-side rendering, static site generation, and optimized React apps.",
+    category: "Frontend",
+    icon: AppWindow,
+    relatedIds: [14, 15],
+    status: "completed",
+    energy: 90,
+  },
+  {
+    id: 11,
+    title: "SQL",
+    date: "Database",
+    content: "Relational database modeling, complex queries, and data integrity constraints.",
+    category: "Backend",
+    icon: Database,
+    relatedIds: [4, 12],
+    status: "in-progress",
+    energy: 75,
+  },
+  {
+    id: 12,
+    title: "GCloud",
+    date: "DevOps",
+    content: "Deploying applications and utilizing Google Cloud native services.",
+    category: "Cloud",
+    icon: Cloud,
+    relatedIds: [11],
+    status: "pending",
+    energy: 60,
+  },
+  {
+    id: 13,
+    title: "GenAI",
+    date: "Emerging Tech",
+    content: "Using LLMs, generative models, and agentic AI for workflow automations.",
+    category: "AI",
+    icon: Sparkles,
+    relatedIds: [9, 18],
+    status: "in-progress",
+    energy: 80,
+  },
+  {
+    id: 14,
+    title: "TypeScript",
+    date: "Core",
+    content: "Strongly typed JavaScript for robust, scalable application development.",
+    category: "Frontend",
+    icon: FileCode,
+    relatedIds: [3, 10, 15],
+    status: "completed",
+    energy: 90,
+  },
+  {
+    id: 15,
+    title: "React",
+    date: "Framework",
+    content: "Component-based UI development, hooks, state management, and virtual DOM.",
+    category: "Frontend",
+    icon: Atom,
+    relatedIds: [3, 10, 14, 16],
+    status: "completed",
+    energy: 95,
+  },
+  {
+    id: 16,
+    title: "Tailwind CSS",
+    date: "Styling",
+    content: "Utility-first CSS framework for rapid UI and structural development.",
+    category: "Frontend",
+    icon: Wind,
+    relatedIds: [2, 15],
+    status: "completed",
+    energy: 95,
+  },
+  {
+    id: 17,
+    title: "Bootstrap",
+    date: "Styling",
+    content: "Classic component-based responsive grid styling framework.",
+    category: "Frontend",
+    icon: Box,
+    relatedIds: [2, 16],
+    status: "in-progress",
+    energy: 80,
+  },
+  {
+    id: 18,
+    title: "AI Models",
+    date: "Emerging Tech",
+    content: "Machine learning concepts, practical AI model integrations and fine-tuning.",
+    category: "AI",
+    icon: BrainCircuit,
+    relatedIds: [9, 13],
+    status: "pending",
+    energy: 70,
+  },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className={styles.section}>
-      <div className="container">
-        <h2 className={styles.sectionTitle}>
-          My <span>Skills</span>
+    <section id="skills" className="relative w-full bg-black min-h-screen pt-20 pb-20">
+      <div className="container mx-auto px-4 text-center mb-8">
+        <p className="text-secondary-glow tracking-widest text-sm uppercase font-semibold mb-2">Technical Proficiency</p>
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          My <span className="text-gradient">Tech Stack</span>
         </h2>
-        <div className={styles.skillsGrid}>
-          {skills.map((skill, index) => (
-            <div key={index} className={`glass ${styles.skillCard}`}>
-              <span className={styles.skillIcon}>{skill.icon}</span>
-              <span className={styles.skillName}>{skill.name}</span>
-            </div>
-          ))}
-        </div>
+        <p className="text-slate-400 max-w-2xl mx-auto mb-4">
+          Explore my orbital skill set. Click on any node to reveal detailed proficiency insights and see how my tech stack connects.
+        </p>
+      </div>
+
+      <div className="w-full">
+        <RadialOrbitalTimeline timelineData={timelineData} />
       </div>
     </section>
   );
