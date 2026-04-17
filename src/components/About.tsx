@@ -1,5 +1,6 @@
 import { Code2, Globe, Laptop } from "lucide-react";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
+import Bucket from "@/components/ui/bucket";
 import styles from "./Sections.module.css";
 
 export default function About() {
@@ -35,9 +36,9 @@ export default function About() {
 	];
 
   return (
-    <section id="about" className="relative w-full pt-20">
+    <section id="about" className="relative w-full pt-20 pb-64">
       {/* Title */}
-      <div className="container mx-auto px-4 text-center mb-16">
+      <div className="container mx-auto px-4 text-center mb-12">
         <p className="text-secondary-glow tracking-widest text-sm uppercase font-semibold mb-2">Get to know</p>
         <h2 className={styles.sectionTitle} style={{ marginBottom: 0 }}>
           About <span className="text-gradient">Me</span>
@@ -49,55 +50,83 @@ export default function About() {
         <ZoomParallax images={images} />
       </div>
 
-      {/* About Content below the Parallax */}
-      <div className="container mx-auto px-4 mt-24 mb-24 max-w-5xl">
-        <div className="grid grid-cols-1 gap-12 items-center tracking-wide">
-          <div className="space-y-8 animate-fade-in-up">
-            <div
-              className="p-8 md:p-12 leading-relaxed relative rounded-2xl border border-white/10 shadow-2xl backdrop-blur-md"
-              style={{ backgroundColor: 'rgba(5, 5, 5, 0.6)' }}
-            >
-              <p className="text-xl md:text-2xl text-slate-200">
-                Hello! My name is Saharsh Singh, and I enjoy creating things that live on the internet. 
-                My interest in web development started back when I decided to try editing custom Tumblr themes 
-                — turns out hacking together <span className="text-white font-bold tracking-wider">HTML & CSS</span> taught me a lot about full-stack development!
-              </p>
-            </div>
+      {/* Interactive Bucket Section */}
+      <div className="container mx-auto px-4 mt-20 mb-20 overflow-visible relative z-30">
+        <Bucket />
+      </div>
 
-            <div
-              className="p-8 md:p-12 leading-relaxed relative rounded-2xl border border-white/10 shadow-2xl backdrop-blur-md"
-              style={{ backgroundColor: 'rgba(5, 5, 5, 0.6)' }}
-            >
-              <p className="text-xl md:text-2xl text-slate-200">
-                Fast-forward to today, and I've had the privilege of building software using the <span className="text-primary-glow font-bold tracking-wider">MERN stack</span> and <span className="text-secondary-glow font-bold tracking-wider">Next.js</span>. 
-                My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
-              </p>
-            </div>
+      {/* About Content - Frameless Typography Redesign */}
+      <div className="container mx-auto px-4 mt-12 mb-24 max-w-4xl">
+        <div className="space-y-20 animate-fade-in-up">
+          
+          {/* Section 1: Introduction & Stack */}
+          <div className="relative">
+            <h3 className="text-secondary-glow font-mono text-sm uppercase tracking-[0.3em] mb-6">Technical Profile</h3>
+            <p className="text-2xl md:text-4xl font-medium leading-tight text-white/90">
+              I am a <span className="text-gradient font-bold underline decoration-white/20 underline-offset-8">Full-Stack Engineer</span> specializing in architecting scalable, high-performance digital experiences. My core expertise lies in the <span className="text-white font-bold">MERN Stack</span> and <span className="text-white font-bold">Next.js</span>, where I bridge the gap between pixel-perfect UI design and robust, type-safe system architecture.
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                <div className="p-8 rounded-2xl border border-white/10 shadow-xl flex items-center space-x-6 hover:scale-105 transition-transform" style={{ backgroundColor: 'rgba(5, 5, 5, 0.6)' }}>
-                    <div className="p-5 bg-blue-500/20 text-blue-400 rounded-xl">
-                        <Globe size={40} strokeWidth={1.5} />
-                    </div>
-                    <div>
-                        <h4 className="text-3xl font-extrabold text-white mb-1">Top</h4>
-                        <p className="text-sm text-slate-400 uppercase tracking-widest font-semibold">Quality Code</p>
-                    </div>
-                </div>
-                
-                <div className="p-8 rounded-2xl border border-white/10 shadow-xl flex items-center space-x-6 hover:scale-105 transition-transform" style={{ backgroundColor: 'rgba(5, 5, 5, 0.6)' }}>
-                    <div className="p-5 bg-purple-500/20 text-purple-400 rounded-xl">
-                        <Code2 size={40} strokeWidth={1.5} />
-                    </div>
-                    <div>
-                        <h4 className="text-3xl font-extrabold text-white mb-1">Full</h4>
-                        <p className="text-sm text-slate-400 uppercase tracking-widest font-semibold">Stack Dev</p>
-                    </div>
-                </div>
+          {/* Section 2: Problem Solving & DSA */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+            <div className="md:col-span-2">
+              <h3 className="text-primary-glow font-mono text-sm uppercase tracking-[0.3em] mb-4">Problem Solving</h3>
+              <div className="h-px w-12 bg-primary-glow/50 mb-6"></div>
+            </div>
+            <div className="md:col-span-3">
+              <p className="text-xl text-slate-300 leading-relaxed mb-6">
+                Beyond building products, I have a deep-seated passion for <span className="text-white font-semibold">Algorithmic Engineering</span>. I actively challenge myself on platforms like <span className="text-white font-semibold">LeetCode</span> and <span className="text-white font-semibold">Codeforces</span>, mastering complex Data Structures and Algorithms.
+              </p>
+              <p className="text-xl text-slate-400 leading-relaxed">
+                This competitive mindset translates directly into my production code, where I prioritize <span className="italic text-slate-200">Big O optimization</span>, memory efficiency, and deterministic logic to build systems that scale effortlessly.
+              </p>
             </div>
           </div>
+
+          {/* Section 3: Engineering Philosophy */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+            <div className="md:col-span-2">
+              <h3 className="text-purple-400 font-mono text-sm uppercase tracking-[0.3em] mb-4">The Craft</h3>
+              <div className="h-px w-12 bg-purple-400/50 mb-6"></div>
+            </div>
+            <div className="md:col-span-3">
+              <p className="text-xl text-slate-300 leading-relaxed">
+                For me, software engineering is a craft. I prioritize <span className="text-white font-semibold">Maintainable Architecture</span> and <span className="text-white font-semibold">Inclusive Accessibility</span>. I believe that code quality is measured not just by its functionality, but by its readability, resilience, and the value it provides to the end user.
+              </p>
+            </div>
+          </div>
+
+          {/* Stats / Highlights - Minimalist Style */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
+            <div className="group relative p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-500 bg-gradient-to-br from-white/[0.02] to-transparent">
+              <div className="flex items-center space-x-6">
+                <div className="p-4 bg-blue-500/10 text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
+                  <Globe size={32} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-white mb-1">Architecture</h4>
+                  <p className="text-xs text-slate-500 uppercase tracking-widest font-mono">Scalable Systems</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 transition-all duration-500 bg-gradient-to-br from-white/[0.02] to-transparent">
+              <div className="flex items-center space-x-6">
+                <div className="p-4 bg-purple-500/10 text-purple-400 rounded-xl group-hover:scale-110 transition-transform">
+                  <Code2 size={32} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-white mb-1">Optimization</h4>
+                  <p className="text-xs text-slate-500 uppercase tracking-widest font-mono">Algorithmic Rigor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+      {/* Spacer to ensure definitive separation */}
+      <div className="h-32"></div>
     </section>
   );
 }

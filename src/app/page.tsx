@@ -15,7 +15,7 @@ export default function Home() {
       
       <Navbar />
       
-      <main>
+      <main className="flex flex-col gap-32 md:gap-64">
         <MinimalistHeroDemo />
         <About />
         <Skills />

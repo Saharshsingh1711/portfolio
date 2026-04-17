@@ -223,13 +223,13 @@ const timelineData: TimelineItem[] = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative w-full bg-black min-h-screen pt-20 pb-20">
-      <div className="container mx-auto px-4 text-center mb-8">
+    <section id="skills" className="relative w-full bg-black min-h-screen pt-12 pb-32">
+      <div className="container mx-auto px-4 text-center mb-16">
         <p className="text-secondary-glow tracking-widest text-sm uppercase font-semibold mb-2">Technical Proficiency</p>
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
           My <span className="text-gradient">Tech Stack</span>
         </h2>
-        <p className="text-slate-400 max-w-2xl mx-auto mb-4">
+        <p className="text-slate-400 max-w-2xl mx-auto mb-8">
           Explore my orbital skill set. Click on any node to reveal detailed proficiency insights and see how my tech stack connects.
         </p>
       </div>

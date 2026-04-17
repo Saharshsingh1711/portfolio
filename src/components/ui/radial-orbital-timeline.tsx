@@ -36,6 +36,12 @@ export default function RadialOrbitalTimeline({
     y: 0,
   });
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -116,8 +122,8 @@ export default function RadialOrbitalTimeline({
     const radius = 300;
     const radian = (angle * Math.PI) / 180;
 
-    const x = radius * Math.cos(radian) + centerOffset.x;
-    const y = radius * Math.sin(radian) + centerOffset.y;
+    const x = Number((radius * Math.cos(radian) + centerOffset.x).toFixed(3));
+    const y = Number((radius * Math.sin(radian) + centerOffset.y).toFixed(3));
 
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
     const opacity = Math.max(
@@ -151,6 +157,10 @@ export default function RadialOrbitalTimeline({
         return "text-white bg-black/40 border-white/50";
     }
   };
+
+  if (!isMounted) {
+    return <div className="w-full h-screen bg-transparent" />;
+  }
 
   return (
     <div
