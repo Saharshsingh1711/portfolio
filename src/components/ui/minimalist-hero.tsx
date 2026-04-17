@@ -105,7 +105,7 @@ export const MinimalistHero = ({
         </motion.div>
 
         {/* Center Image with Circle */}
-        <div className="relative order-1 md:order-2 flex justify-center items-center h-full">
+        <div className="relative z-30 order-1 md:order-2 flex justify-center items-center h-full">
             <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
