@@ -1,7 +1,38 @@
+"use client";
 import { Code2, Globe, Laptop } from "lucide-react";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 import Bucket from "@/components/ui/bucket";
 import styles from "./Sections.module.css";
+import { motion } from "framer-motion";
+
+// Agency Animation Variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemFadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export default function About() {
   const images = [
@@ -36,14 +67,20 @@ export default function About() {
 	];
 
   return (
-    <section id="about" className="relative w-full pt-20 pb-64">
+    <section id="about" className="relative w-full pt-20 pb-0">
       {/* Title */}
-      <div className="container mx-auto px-4 text-center mb-12">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeIn}
+        className="container mx-auto px-4 text-center mb-12"
+      >
         <p className="text-secondary-glow tracking-widest text-sm uppercase font-semibold mb-2">Get to know</p>
         <h2 className={styles.sectionTitle} style={{ marginBottom: 0 }}>
           About <span className="text-gradient">Me</span>
         </h2>
-      </div>
+      </motion.div>
 
         {/* Full Bleed Zoom Parallax Section */}
       <div className="w-full">
@@ -55,20 +92,26 @@ export default function About() {
         <Bucket />
       </div>
 
-      {/* About Content - Frameless Typography Redesign */}
-      <div className="container mx-auto px-4 mt-12 mb-24 max-w-4xl">
-        <div className="space-y-20 animate-fade-in-up">
+      {/* About Content - Frameless Typography Redesign with Agency Animations */}
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="container mx-auto px-4 mt-12 mb-24 max-w-4xl"
+      >
+        <div className="space-y-20">
           
           {/* Section 1: Introduction & Stack */}
-          <div className="relative">
+          <motion.div variants={itemFadeIn} className="relative">
             <h3 className="text-secondary-glow font-mono text-sm uppercase tracking-[0.3em] mb-6">Technical Profile</h3>
             <p className="text-2xl md:text-4xl font-medium leading-tight text-white/90">
               I am a <span className="text-gradient font-bold underline decoration-white/20 underline-offset-8">Full-Stack Engineer</span> specializing in architecting scalable, high-performance digital experiences. My core expertise lies in the <span className="text-white font-bold">MERN Stack</span> and <span className="text-white font-bold">Next.js</span>, where I bridge the gap between pixel-perfect UI design and robust, type-safe system architecture.
             </p>
-          </div>
+          </motion.div>
 
           {/* Section 2: Problem Solving & DSA */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+          <motion.div variants={itemFadeIn} className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
             <div className="md:col-span-2">
               <h3 className="text-primary-glow font-mono text-sm uppercase tracking-[0.3em] mb-4">Problem Solving</h3>
               <div className="h-px w-12 bg-primary-glow/50 mb-6"></div>
@@ -81,10 +124,10 @@ export default function About() {
                 This competitive mindset translates directly into my production code, where I prioritize <span className="italic text-slate-200">Big O optimization</span>, memory efficiency, and deterministic logic to build systems that scale effortlessly.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Section 3: Engineering Philosophy */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+          <motion.div variants={itemFadeIn} className="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
             <div className="md:col-span-2">
               <h3 className="text-purple-400 font-mono text-sm uppercase tracking-[0.3em] mb-4">The Craft</h3>
               <div className="h-px w-12 bg-purple-400/50 mb-6"></div>
@@ -94,10 +137,10 @@ export default function About() {
                 For me, software engineering is a craft. I prioritize <span className="text-white font-semibold">Maintainable Architecture</span> and <span className="text-white font-semibold">Inclusive Accessibility</span>. I believe that code quality is measured not just by its functionality, but by its readability, resilience, and the value it provides to the end user.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Stats / Highlights - Minimalist Style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
+          <motion.div variants={itemFadeIn} className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
             <div className="group relative p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-500 bg-gradient-to-br from-white/[0.02] to-transparent">
               <div className="flex items-center space-x-6">
                 <div className="p-4 bg-blue-500/10 text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
@@ -121,12 +164,13 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
-      </div>
+      </motion.div>
       {/* Spacer to ensure definitive separation */}
       <div className="h-32"></div>
     </section>
   );
 }
+

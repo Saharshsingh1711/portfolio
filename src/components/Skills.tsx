@@ -1,6 +1,7 @@
 "use client";
 
 import RadialOrbitalTimeline, { TimelineItem } from "@/components/ui/radial-orbital-timeline";
+import { motion } from "framer-motion";
 import { 
   FileCode, 
   Paintbrush, 
@@ -221,22 +222,63 @@ const timelineData: TimelineItem[] = [
   },
 ];
 
+// Agency Animation Variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemFadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 export default function Skills() {
   return (
     <section id="skills" className="relative w-full bg-black min-h-screen pt-12 pb-32">
-      <div className="container mx-auto px-4 text-center mb-16">
-        <p className="text-secondary-glow tracking-widest text-sm uppercase font-semibold mb-2">Technical Proficiency</p>
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="container mx-auto px-4 text-center mb-16"
+      >
+        <motion.p variants={itemFadeIn} className="text-secondary-glow tracking-widest text-sm uppercase font-semibold mb-2">Technical Proficiency</motion.p>
+        <motion.h2 variants={itemFadeIn} className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
           My <span className="text-gradient">Tech Stack</span>
-        </h2>
-        <p className="text-slate-400 max-w-2xl mx-auto mb-8">
+        </motion.h2>
+        <motion.p variants={itemFadeIn} className="text-slate-400 max-w-2xl mx-auto mb-12">
           Explore my orbital skill set. Click on any node to reveal detailed proficiency insights and see how my tech stack connects.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
-      <div className="w-full">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeIn}
+        className="w-full"
+      >
         <RadialOrbitalTimeline timelineData={timelineData} />
-      </div>
+      </motion.div>
     </section>
   );
 }
