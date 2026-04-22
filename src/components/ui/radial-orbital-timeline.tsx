@@ -4,6 +4,7 @@ import { ArrowRight, Link, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export interface TimelineItem {
   id: number;
@@ -117,9 +118,11 @@ export default function RadialOrbitalTimeline({
     setRotationAngle(270 - targetAngle);
   };
 
+  const isMobile = useIsMobile();
+  const radius = isMobile ? 150 : 300;
+
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 300;
     const radian = (angle * Math.PI) / 180;
 
     const x = Number((radius * Math.cos(radian) + centerOffset.x).toFixed(3));
@@ -177,16 +180,29 @@ export default function RadialOrbitalTimeline({
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
-          <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 animate-[pulse_2s_ease-in-out_infinite] flex items-center justify-center z-10">
-            <div className="absolute w-32 h-32 rounded-full border border-white/20 animate-[ping_1s_ease-in-out_infinite] opacity-70"></div>
-            <div
-              className="absolute w-40 h-40 rounded-full border border-white/10 animate-[ping_1s_ease-in-out_infinite] opacity-50"
-              style={{ animationDelay: "0.5s" }}
+          <div 
+            className="absolute rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 animate-[pulse_2s_ease-in-out_infinite] flex items-center justify-center z-10"
+            style={{ width: isMobile ? '4rem' : '6rem', height: isMobile ? '4rem' : '6rem' }}
+          >
+            <div 
+              className="absolute rounded-full border border-white/20 animate-[ping_1s_ease-in-out_infinite] opacity-70"
+              style={{ width: isMobile ? '6rem' : '8rem', height: isMobile ? '6rem' : '8rem' }}
             ></div>
-            <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-md"></div>
+            <div
+              className="absolute rounded-full border border-white/10 animate-[ping_1s_ease-in-out_infinite] opacity-50"
+              style={{ 
+                width: isMobile ? '8rem' : '10rem', 
+                height: isMobile ? '8rem' : '10rem',
+                animationDelay: "0.5s" 
+              }}
+            ></div>
+            <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/80 backdrop-blur-md"></div>
           </div>
 
-          <div className="absolute w-[600px] h-[600px] rounded-full border border-white/10"></div>
+          <div 
+            className="absolute rounded-full border border-white/10"
+            style={{ width: radius * 2, height: radius * 2 }}
+          ></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);

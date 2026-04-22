@@ -99,7 +99,7 @@ export default function About() {
   return (
     <section id="about" className="relative w-full">
       {/* LAYER 1: THE CURTAIN (Entry Point) */}
-      <div className="relative z-20 w-full h-screen bg-background flex flex-col items-center justify-center border-b border-white/5 shadow-2xl rounded-b-[4rem]">
+      <div className="relative z-20 w-full h-[100dvh] bg-background flex flex-col items-center justify-center border-b border-white/5 shadow-2xl rounded-b-[4rem]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05)_0%,transparent_70%)] pointer-events-none" />
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -121,7 +121,7 @@ export default function About() {
         className="relative h-[160vh] w-full z-10"
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
-        <div className="fixed bottom-0 left-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#050505] text-foreground">
+        <div className="fixed bottom-0 left-0 flex h-[100dvh] w-full flex-col items-center justify-center overflow-hidden bg-[#050505] text-foreground">
           
           {/* Ambient Background Grid */}
           <div className="footer-bg-grid absolute inset-0 opacity-20 pointer-events-none" />
@@ -129,7 +129,7 @@ export default function About() {
           {/* Giant background text (SAHARSH) */}
           <div
             ref={giantTextRef}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[26vw] font-black text-white/[0.05] whitespace-nowrap z-0 pointer-events-none select-none tracking-tighter"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[22vw] md:text-[26vw] font-black text-white/[0.05] whitespace-nowrap z-0 pointer-events-none select-none tracking-tighter"
           >
             SAHARSH
           </div>

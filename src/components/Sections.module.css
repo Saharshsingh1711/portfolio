@@ -1,5 +1,5 @@
 .section {
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 
 .sectionTitle {
@@ -7,6 +7,16 @@
   font-weight: 700;
   margin-bottom: 3rem;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .sectionTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .sectionTitle span {
@@ -102,7 +112,7 @@
 /* Projects */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
